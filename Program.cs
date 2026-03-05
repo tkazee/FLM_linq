@@ -6,6 +6,9 @@ namespace FLM_linq
         static void Main(string[] args)
         {
             var students = CollectionUtils.Student;
+            Console.WriteLine("----All students----");
+            foreach (Student stud in students) Console.WriteLine(stud);
+            Console.WriteLine("================================");
             //Native Sql : Select * from Student where marks>70
 
             //LINQ : from stud in students  where stud.Marks>70
@@ -21,6 +24,7 @@ namespace FLM_linq
             }
             */
 
+            /*
             var filteredList1 = (from student in students
                                                          where student.Marks >= 70
                                                          select student).ToList();
@@ -44,8 +48,34 @@ namespace FLM_linq
             }
             Console.WriteLine("-------------------------");
             var nameExtentionModel = (students.Where(stud => stud.Marks >= 70).Select(stud => stud.Name)).ToList();
+            */
 
+            //Sorting
+            Console.WriteLine("\n---Ascending order query ----\n");
+            var sortedList = from stud in students orderby stud.Marks select stud;
+            foreach (var stud in sortedList)
+            {
+                Console.WriteLine(stud);
+            }
 
+            Console.WriteLine("\n---Ascending order extension method----\n");
+
+            var sortedList2 = students.OrderBy(stud => stud.Marks);
+            foreach (var stuedent in sortedList2)
+            {
+                Console.WriteLine(stuedent);
+
+            }
+
+            Console.WriteLine("\n---------Group By Course-----------\n");
+            var groupByCourse = from stud in students group stud by stud.Course;
+            var groupByCourse2 = students.GroupBy(stud => stud.Course);
+            foreach (var stud in groupByCourse2)
+            {
+                Console.WriteLine(stud.Key);
+            foreach (var student in stud) Console.WriteLine(student);
+            }
+            
         }
     }
 }
