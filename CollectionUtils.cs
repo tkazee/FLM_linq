@@ -8,8 +8,24 @@ namespace FLM_linq
 {
     public class CollectionUtils
     {
-        public static List<Student> _students = new List<Student>();
-        public static List<Product> _products = new List<Product>();
+        public static List<Student> _students = new List<Student>()
+        {
+                new Student("Alice", "Mathematics", 85),
+                new Student("Bob", "Physics", 78),
+                new Student("Charlie", "Chemistry", 92),
+                new Student("David", "Biology", 88),
+                new Student("Eve", "Computer Science", 95)
+        };
+        public static List<Product> _products = new List<Product>()
+        {
+            new Product("Mobiles", 10000, 20),
+            new Product("TV", 23330, 20),
+            new Product("PC", 25000, 20),
+            new Product("Ac", 70000, 20),
+            new Product("Cooler", 50000, 20),
+            new Product("Mobiles", 901555, 20),
+            new Product("Mobiles", 10000, 20),
+        };
 
 
         //this create a new obj every time
@@ -26,25 +42,13 @@ namespace FLM_linq
 
         public CollectionUtils()
         {
-            _students.Add(new Student("Alice", "Mathematics", 85));
-            _students.Add(new Student("Bob", "Physics", 78));
-
-            _products.Add(new Product("Mobiles", 10000, 20));
-            _products.Add(new Product("TV", 23330, 20));
-            _products.Add(new Product("PC", 25000, 20));
-            _products.Add(new Product("Ac", 70000, 20));
-            _products.Add(new Product("Cooler", 50000, 20));
-            _products.Add(new Product("Mobiles", 901555, 20));
-            _products.Add(new Product("Mobiles", 10000, 20));
-
-
         }
         //encapsulation
-        public List<Student> Student
+        public static List<Student> Student
         {
             get { return _students; }
         }
-        public List<Product> Product
+        public static List<Product> Product
         {
             get { return _products; }
         }
