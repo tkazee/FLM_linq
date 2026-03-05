@@ -8,6 +8,7 @@ namespace FLM_linq
 {
     public class Student
     {
+        private static int _id = 1001;
         public int Id { get; set; }
         public string Name { get; set; }
         public string Course { get; set; }
@@ -15,7 +16,7 @@ namespace FLM_linq
 
         public Student(int id, string name, string course, int marks)
         {
-            Id = id;
+            Id = _id++;
             Name = name;
             Course = course;
             Marks = marks;
