@@ -14,7 +14,7 @@ namespace FLM_linq
         public string Course { get; set; }
         public int Marks { get; set; }
 
-        public Student(int id, string name, string course, int marks)
+        public Student(string name, string course, int marks)
         {
             Id = _id++;
             Name = name;
